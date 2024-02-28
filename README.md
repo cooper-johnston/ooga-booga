@@ -22,5 +22,6 @@ Intended for use with ``pdflatex``
 * ``fancyhdr``
 * ``emptypage``
 * ``enumitem``
+* ``xcolor``
 * ``hyperref``
 * ``parskip``

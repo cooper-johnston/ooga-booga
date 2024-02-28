@@ -10,11 +10,11 @@
 % Default paper size and margins
 \newcommand{\ob@papersize}{a4paper}
 \newlength{\ob@vmargin}
-\setlength{\ob@vmargin}{105pt}
+\setlength{\ob@vmargin}{108pt}
+\newlength{\ob@leftmargin}
+\setlength{\ob@leftmargin}{108pt}
 \newlength{\ob@textwidth}
 \setlength{\ob@textwidth}{345pt}
-\newlength{\ob@leftmargin}
-\setlength{\ob@leftmargin}{105pt}
 
 % Special heading formatting
 \newcommand{\ob@headingstyle}{}
@@ -23,8 +23,7 @@
 \DeclareOption{a4paper}{} % default
 \DeclareOption{letterpaper}{
     \renewcommand{\ob@papersize}{letterpaper}
-    \setlength{\ob@vmargin}{80pt}
-    \setlength{\ob@leftmargin}{115pt}
+    \setlength{\ob@textwidth}{355pt}
 }
 
 % Option for sentence case in "List of Figures" and "List of Tables" headings
@@ -56,12 +55,103 @@
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[T1]{fontenc}
 \RequirePackage{geometry}
-\RequirePackage{titlesec}
+\RequirePackage[rigidchapters]{titlesec}
 \RequirePackage{fancyhdr}
 \RequirePackage{emptypage}
 \RequirePackage{enumitem}
+\RequirePackage{xcolor}
 \RequirePackage[hidelinks]{hyperref}
 \RequirePackage{parskip}
+
+% Geometry
+% =============================================================================
+
+\geometry{
+    \ob@papersize,
+    vmargin=\ob@vmargin,
+    left=\ob@leftmargin,
+    textwidth=\ob@textwidth
+}
+
+% Headers and footers
+% =============================================================================
+
+% Chapter and section labels in header
+\renewcommand{\sectionmark}[1]{\markright{\thesection\quad #1}}
+\renewcommand{\chaptermark}[1]{\markboth{\if@mainmatter\thechapter\quad\fi #1}{}}
+
+\fancypagestyle{standard}{
+    \fancyhf{}
+    \renewcommand{\headrulewidth}{0pt}
+    \fancyhead[LO]{\rightmark}
+    \fancyhead[RE]{\leftmark}
+    \fancyhead[LE,RO]{\thepage}
+}
+\pagestyle{standard}
+
+% Headings
+% =============================================================================
+
+% Length from top of page where body text starts at the start of a chapter
+\newlength{\ob@textstart}
+\setlength{\ob@textstart}{0.333\paperheight}
+\addtolength{\ob@textstart}{-\ob@vmargin} % not including top margin
+
+\titleformat{\chapter}[display]
+    {\normalfont\Large\bfseries\ob@headingstyle}
+    {\chaptertitlename\ \thechapter}
+    {0pt}
+    {\raggedright\huge}
+
+\titleformat{\section}
+    {\normalfont\Large\bfseries\ob@headingstyle}{\thesection}{1em}{}
+
+\titleformat{\subsection}
+    {\normalfont\large\bfseries\ob@headingstyle}{\thesubsection}{1em}{}
+
+\titleformat{\subsubsection}
+    {\normalfont\normalsize\bfseries\ob@headingstyle}{\thesubsubsection}{1em}{}
+
+\titleformat{\paragraph}[runin]
+    {\normalfont\normalsize\bfseries\ob@headingstyle}{\theparagraph}{1em}{}
+
+\titleformat{\subparagraph}[runin]
+    {\normalfont\normalsize\bfseries\ob@headingstyle}{\thesubparagraph}{1em}{}
+
+% Chapter headings at top of page, just under top margin
+\titlespacing*{\chapter}{0pt}{-\f@size pt}{\ob@textstart}
+
+% Title page
+% =============================================================================
+
+% Text to go at bottom of title page
+\newcommand{\ob@titlepagenotes}{\@date} % defaults to the date
+\newcommand{\titlepagenotes}[1]{\renewcommand{\ob@titlepagenotes}{#1}}
+
+\renewcommand{\maketitle}{\begin{titlepage}%
+    \raggedright%
+    \noindent%
+    \parbox[t][0pt]{\ob@textwidth}{%
+        \vspace*{\ob@textstart}%
+        \raggedright%
+        \Huge\bfseries\ob@headingstyle\@title%
+    }\par%
+    \vspace*{-\parskip}\Large\@author\par%
+    \vfill%
+    \ob@titlepagenotes%
+    \normalfont%
+    \newpage%
+    \thispagestyle{titlepagereverse}%
+    \null\vfill%
+\end{titlepage}}
+
+% Credit at bottom of reverse side of title page
+\newcommand{\ob@credit}{This document was typeset using the Ooga Booga {\LaTeX} Class}
+\fancypagestyle{titlepagereverse}{
+    \fancyhf{}
+    \renewcommand{\headrulewidth}{0pt}
+    \fancyfoot[R]{\color{lightgray}\ob@credit}
+}
 
 % Frontmatter
 % =============================================================================
