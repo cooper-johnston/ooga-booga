@@ -45,10 +45,10 @@
 \DeclareOption{openany}{\OptionNotUsed}
 \DeclareOption{twocolumn}{\OptionNotUsed}
 
-\DeclareOption*{\PassOptionsToClass{\CurrentOption}{\baseclass}}
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{\ob@baseclass}}
 
 \ProcessOptions\relax
-\LoadClass{\baseclass}
+\LoadClass{\ob@baseclass}
 
 % Packages
 % =============================================================================
