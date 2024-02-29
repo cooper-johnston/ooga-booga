@@ -78,7 +78,9 @@
 
 % Chapter and section labels in header
 \renewcommand{\sectionmark}[1]{\markright{\thesection\quad #1}}
-\renewcommand{\chaptermark}[1]{\markboth{\if@mainmatter\thechapter\quad\fi #1}{}}
+\renewcommand{\chaptermark}[1]{\markboth{%
+    \if@mainmatter\thechapter\quad\fi #1%
+}{}}
 
 \fancypagestyle{standard}{
     \fancyhf{}

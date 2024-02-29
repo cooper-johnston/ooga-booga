@@ -10,8 +10,8 @@ Intended for use with ``pdflatex``
 
 * ``a4paper`` (default)
 * ``letterpaper``
-* ``sentencecase``: Use sentence case in "List of Figures" and "List of Tables" headings
-* ``sansheadings``: Use sans-serif font in headings
+* ``sentencecase`` for sentence case in "List of Figures" and "List of Tables" headings, i.e. "List of figures" and "List of headings"
+* ``sansheadings`` for sans-serif font in headings
 
 ## Required packages
 
