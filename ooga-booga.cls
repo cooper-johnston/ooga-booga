@@ -155,11 +155,6 @@
 % Frontmatter
 % =============================================================================
 
-\newenvironment{preface}[1][Preface]{%
-    \thispagestyle{plain}%
-    \chapter{#1}%
-}{}
-
 \ifdefined\ob@headingcase
     \renewcommand{\listfigurename}{List of figures}
     \renewcommand{\listtablename}{List of tables}
