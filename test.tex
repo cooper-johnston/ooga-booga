@@ -3,10 +3,16 @@
 \usepackage{lipsum}
 \usepackage{lmodern}
 
-\title{The Most Beautiful Testing Document Ever Made}
+\title{A Sample Document for Testing the Ooga Booga Class}
 \author{Kari Nordmann}
 \date{28 February 2024}
-\titlepagenotes{Ph.D. Thesis in Typesetting\par Department of Awesome\\ University of Documents}
+\titlepagenotes{%
+Ph.D. Thesis in Typesetting\\
+Spring 2024
+
+Department of Technicalities\\
+University of Documents%
+}
 
 \begin{document}
 
@@ -24,28 +30,74 @@
 
 \chapter{Hello World}
 
-\lipsum[1-2]
+\lipsum[1]
 
 \section{Important things}
 
 \subsection{Rules and procedures}
 
-\lipsum[3-8]
+\lipsum[2]
+
+\[
+    \int_a^b f(x)\,dx=F(b)-F(a)
+\]
+
+\lipsum[3-4]
+
+\begin{enumerate}
+    \item An item in a numbered list
+    \item Another item in that list
+    \item Finally, a third item in the list
+\end{enumerate}
 
 \subsection{Safety}
 
-\lipsum[9-12]
+\subsubsection{Seatbelts in flying cars}
 
-\chapter{Something with a very long name that could potentially span multiple lines}
+\lipsum[6]
 
-\section{Another thing within that thing with a very long name that itself has a very long name}
+\paragraph{Passenger capacity}
+\lipsum[7]
 
-\lipsum[13-15]
+\subsection{Additional specifications}
+
+\lipsum[8]
+
+\begin{enumerate}
+    \item \lipsum[9-10]
+    \item \lipsum[11]
+    \begin{enumerate}
+        \item Subitem in a list with long entries
+        \item Another subitem in that list
+        \begin{enumerate}
+            \item Maybe there could be some sub-subitems.
+            \item Here's another one.
+        \end{enumerate}
+        \item A third subitem in the list, this time with an equation
+        \[
+            P_n(z)=a_0+a_1z+a_2z^2+\cdots+a_nz^n
+        \]
+        \item Finally, a fourth subitem in the list
+    \end{enumerate}
+\end{enumerate}
+
+\lipsum[12]
+
+\section{A section that just has a lot of text}
+
+\lipsum[13-19]
+
+
+\chapter[Something with a very long name]{Something with a very long name that could potentially span multiple lines}
+
+\section[Another thing with a very long name]{Another thing within that thing with a very long name that itself has a very long name}
+
+\lipsum[20-30]
 
 \backmatter
 
 \chapter{Appendix}
 
-\lipsum[20-22]
+\lipsum[31-33]
 
 \end{document}
