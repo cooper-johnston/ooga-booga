@@ -168,3 +168,14 @@
 \setlength{\topsep}{\parskip}
 \frenchspacing
 \raggedbottom
+
+% Numbered lists
+% =============================================================================
+
+\setlist[enumerate]{
+    labelindent=0pt,
+    labelwidth=20pt,
+    labelsep=4pt,
+    leftmargin=!,
+    align=left
+}
