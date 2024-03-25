@@ -8,7 +8,10 @@
 \newcommand{\ob@baseclass}{book}
 
 % Default paper size and margins
-\newcommand{\ob@papersize}{a4paper}
+\newlength{\ob@paperwidth}
+\setlength{\ob@paperwidth}{210mm}
+\newlength{\ob@paperheight}
+\setlength{\ob@paperheight}{297mm}
 \newlength{\ob@vmargin}
 \setlength{\ob@vmargin}{108pt}
 \newlength{\ob@leftmargin}
@@ -22,8 +25,21 @@
 % Options for paper size
 \DeclareOption{a4paper}{} % default
 \DeclareOption{letterpaper}{
-    \renewcommand{\ob@papersize}{letterpaper}
+    \setlength{\ob@paperwidth}{8.5in}
+    \setlength{\ob@paperheight}{11in}
     \setlength{\ob@textwidth}{355pt}
+}
+\DeclareOption{b5paper}{
+    \setlength{\ob@paperwidth}{176mm}
+    \setlength{\ob@paperheight}{250mm}
+    \setlength{\ob@vmargin}{77.88pt}
+    \setlength{\ob@leftmargin}{77.88pt}
+}
+\DeclareOption{17x24paper}{
+    \setlength{\ob@paperwidth}{17cm}
+    \setlength{\ob@paperheight}{24cm}
+    \setlength{\ob@vmargin}{69.35pt}
+    \setlength{\ob@leftmargin}{69.35pt}
 }
 
 % Option for sentence case in "List of Figures" and "List of Tables" headings
@@ -36,7 +52,6 @@
 \DeclareOption{11pt}{\OptionNotUsed}
 \DeclareOption{12pt}{\OptionNotUsed}
 \DeclareOption{a5paper}{\OptionNotUsed}
-\DeclareOption{b5paper}{\OptionNotUsed}
 \DeclareOption{legalpaper}{\OptionNotUsed}
 \DeclareOption{executivepaper}{\OptionNotUsed}
 \DeclareOption{landscape}{\OptionNotUsed}
@@ -67,7 +82,8 @@
 % =============================================================================
 
 \geometry{
-    \ob@papersize,
+    paperwidth=\ob@paperwidth,
+    paperheight=\ob@paperheight,
     vmargin=\ob@vmargin,
     left=\ob@leftmargin,
     textwidth=\ob@textwidth
@@ -96,7 +112,7 @@
 
 % Length from top of page where body text starts at the start of a chapter
 \newlength{\ob@textstart}
-\setlength{\ob@textstart}{0.333\paperheight}
+\setlength{\ob@textstart}{0.333\ob@paperheight}
 \addtolength{\ob@textstart}{-\ob@vmargin} % not including top margin
 
 \titleformat{\chapter}[display]
