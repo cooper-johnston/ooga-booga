@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{ooga-booga}[Ooga Booga Class v0.1 by mrfylke2001 on GitHub]
+\ProvidesClass{ooga-booga}[Ooga Booga Class v0.1 by cooper\-johnston on GitHub]
 
 % Base class and options
 % =============================================================================
@@ -163,7 +163,7 @@
 \end{titlepage}}
 
 % Credit at bottom of reverse side of title page
-% \newcommand{\ob@credit}{This document was typeset using the Ooga Booga {\LaTeX} Class\\ \url{https://github.com/mrfylke2001/ooga-booga/}}
+% \newcommand{\ob@credit}{This document was typeset using the Ooga Booga {\LaTeX} Class\\ \url{https://github.com/cooper-johnston/ooga-booga/}}
 % \fancypagestyle{titlepagereverse}{
 %     \fancyhf{}
 %     \renewcommand{\headrulewidth}{0pt}
