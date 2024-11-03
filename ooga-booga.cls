@@ -158,7 +158,7 @@
     \vfill%
     \large\ob@titlepagenotes%
     \newpage%
-    % \thispagestyle{titlepagereverse}%
+    \thispagestyle{empty}%
     \null\vfill%
 \end{titlepage}}
 
