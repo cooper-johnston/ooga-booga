@@ -158,17 +158,17 @@
     \vfill%
     \large\ob@titlepagenotes%
     \newpage%
-    \thispagestyle{titlepagereverse}%
+    % \thispagestyle{titlepagereverse}%
     \null\vfill%
 \end{titlepage}}
 
 % Credit at bottom of reverse side of title page
-\newcommand{\ob@credit}{This document was typeset using the Ooga Booga {\LaTeX} Class\\ \url{https://github.com/mrfylke2001/ooga-booga/}}
-\fancypagestyle{titlepagereverse}{
-    \fancyhf{}
-    \renewcommand{\headrulewidth}{0pt}
-    \fancyfoot[R]{\color{lightgray}\ob@credit}
-}
+% \newcommand{\ob@credit}{This document was typeset using the Ooga Booga {\LaTeX} Class\\ \url{https://github.com/mrfylke2001/ooga-booga/}}
+% \fancypagestyle{titlepagereverse}{
+%     \fancyhf{}
+%     \renewcommand{\headrulewidth}{0pt}
+%     \fancyfoot[R]{\color{lightgray}\ob@credit}
+% }
 
 % Frontmatter
 % =============================================================================
