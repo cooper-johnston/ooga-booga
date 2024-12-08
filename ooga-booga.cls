@@ -48,6 +48,9 @@
 % Option for sans-serif headings
 \DeclareOption{sansheadings}{\renewcommand{\ob@headingstyle}{\sffamily}}
 
+% Option to include a credit note for this template on the reverse of the title page
+\DeclareOption{credit}{\def\ob@credit{1}}
+
 % Suppress remaining book class options
 \DeclareOption{11pt}{\OptionNotUsed}
 \DeclareOption{12pt}{\OptionNotUsed}
@@ -95,15 +98,21 @@
 % Chapter and section labels in header
 \renewcommand{\sectionmark}[1]{\markright{\thesection\quad #1}}
 \renewcommand{\chaptermark}[1]{\markboth{%
-    \if@mainmatter\thechapter\quad\fi #1%
+    \if@mainmatter\@chapapp\ \thechapter.\quad\fi #1%
 }{}}
+
+\fancypagestyle{plain}{
+    \fancyhf{}
+    \renewcommand{\headrulewidth}{0pt}
+    \fancyfoot[C]{\textbf{\thepage}}
+}
 
 \fancypagestyle{standard}{
     \fancyhf{}
     \renewcommand{\headrulewidth}{0pt}
-    \fancyhead[LO]{\rightmark}
-    \fancyhead[RE]{\leftmark}
-    \fancyhead[LE,RO]{\thepage}
+    \fancyhead[RO]{\rightmark\rlap{\qquad\textbf{\thepage}}}
+    \fancyhead[LE]{\llap{\textbf{\thepage}\qquad}\leftmark}
+    % \fancyhead[LE,RO]{\bfseries\thepage}
 }
 \pagestyle{standard}
 
@@ -158,17 +167,17 @@
     \vfill%
     \large\ob@titlepagenotes%
     \newpage%
-    \thispagestyle{empty}%
+    \thispagestyle{titlepagereverse}%
     \null\vfill%
 \end{titlepage}}
 
 % Credit at bottom of reverse side of title page
-% \newcommand{\ob@credit}{This document was typeset using the Ooga Booga {\LaTeX} Class\\ \url{https://github.com/cooper-johnston/ooga-booga/}}
-% \fancypagestyle{titlepagereverse}{
-%     \fancyhf{}
-%     \renewcommand{\headrulewidth}{0pt}
-%     \fancyfoot[R]{\color{lightgray}\ob@credit}
-% }
+\newcommand{\ob@creditmessage}{This document was typeset using the Ooga Booga {\LaTeX} Class\\ \url{https://github.com/cooper-johnston/ooga-booga/}}
+\fancypagestyle{titlepagereverse}{
+    \fancyhf{}
+    \renewcommand{\headrulewidth}{0pt}
+    \fancyfoot[R]{\ifdefined\ob@credit\color{lightgray}\ob@creditmessage\fi}
+}
 
 % Frontmatter
 % =============================================================================
